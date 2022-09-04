@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %} Empleados de area {% endblock titulo %}
+    
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class="grid x">
+        <div class="cell">
+            <table>
+                <thead>
+                    <tr>
+                      <th width="200">ID</th>
+                      <th width="200">Nombre</th>
+                      <th width="200">Apellido</th>
+                      <th width="200">Departamento</th>
+                      <th width="200">Accion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      
+                      {% for empleado in empleados %}                                                                                
+                    <tr>
+                      <td>{{ empleado.id }}</td>
+                      <td>{{ empleado.first_name }}</td>
+                      <td>{{ empleado.last_name }}</td>
+                      <td>{{ empleado.departamento}}</td>
+                      <td><a href="{% url 'persona_app:detalle-empleado' empleado.id %}" class="button small">Ver</a></td>
+                    </tr>
+                      {% endfor %}                
+                  </tbody>                       
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock content %}
+    

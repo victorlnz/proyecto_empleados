@@ -1,0 +1,19 @@
+<h1>listar empleados por keyword</h1>
+
+<form method="get"> {% csrf_token %}
+    <label for="">ingrese palabra clave</label>
+    <input type="text" name="kword" id="kword">
+    <button type="submit">Buscar</button>
+    
+</form>
+
+<ul>
+    
+    {% for e in array_kword  %}
+
+    <li>{{ e }}</li>
+        
+    {% endfor %}
+        
+</ul>
+    
